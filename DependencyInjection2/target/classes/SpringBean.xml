@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<context:annotation-config />
+
+	<bean id="driver1" class="First.SimpleBMVDriver" />
+	<bean id="driver2" class="First.SimpleBMVDriver">
+		<constructor-arg value="Roman" />
+	</bean>
+	<bean id="driver3" class="First.SimpleBMVDriver">
+		<property name="name" value="Вася" />
+	</bean>
+	<bean id="car" class="First.Porshe" autowire-candidate="false" />
+	<bean id="bentley" class="First.Bentley" />
+	<bean id="profidriver" class="First.ProfiDriver" autowire="byName">
+		<property name="name" value="Галя" />
+	</bean>
+	<bean id="profidriver2" class="First.ProfiDriver" autowire="byType">
+		<property name="name" value="Вітя" />
+	</bean>
+	<context:component-scan base-package="First">
+	</context:component-scan>
+	<bean id="superdriver" class="First.SuperDriver">
+		<property name="name" value="Пєтя" />
+	</bean>
+</beans>
